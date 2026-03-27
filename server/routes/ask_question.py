@@ -32,7 +32,7 @@ async def ask_question(question: str = Form(...)):
         pc = Pinecone(api_key=pinecone_api_key)
         index = pc.Index(index_name)
         
-        embed_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=google_api_key)
+        embed_model = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004", google_api_key=google_api_key)
         
         # Embed query and search Pinecone
         embedded_query = embed_model.embed_query(question)
