@@ -25,13 +25,24 @@ os.makedirs(UPLOAD_DIR,exist_ok=True)
 
 # initialize pinecone instance
 pc=Pinecone(api_key=PINECONE_API_KEY)
-# ServerlessSpec is used in create_index
+
+# Define target dimension for high-quality Gemini 2.0 embeddings
+TARGET_DIMENSION = 3072
+
 existing_indexes=[i.name for i in pc.list_indexes().indexes]
 
+if PINECONE_INDEX_NAME in existing_indexes:
+    description = pc.describe_index(PINECONE_INDEX_NAME)
+    if description.dimension != TARGET_DIMENSION:
+        print(f"Dimension mismatch (Found {description.dimension}, Need {TARGET_DIMENSION}). Recreating index...")
+        pc.delete_index(PINECONE_INDEX_NAME)
+        existing_indexes.remove(PINECONE_INDEX_NAME)
+
 if PINECONE_INDEX_NAME not in existing_indexes:
+    print(f"Creating Pinecone index: {PINECONE_INDEX_NAME} (Dimension: {TARGET_DIMENSION})")
     pc.create_index(
         name=PINECONE_INDEX_NAME,
-        dimension=768,
+        dimension=TARGET_DIMENSION,
         metric="cosine",
         spec=ServerlessSpec(cloud="aws", region="us-east-1")
     )
@@ -44,7 +55,7 @@ index=pc.Index(PINECONE_INDEX_NAME)
 # load, split, embed and upsert pdf docs content
 
 def load_vectorstore(uploaded_files):
-    embed_model=GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
+    embed_model=GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-2-preview")
     file_path=[]
 
     # 1. upload
