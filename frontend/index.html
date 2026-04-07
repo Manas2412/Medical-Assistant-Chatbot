@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediBot - AI Medical Assistant</title>
+    <meta name="description" content="A production-ready RAG Healthcare Assistant that allows users to seamlessly upload medical reports and ask contextual questions.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Phosphor Icons for UI Elements -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    
+    <header class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="ph-fill ph-heartbeat"></i>
+                <span>MediBot</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How it Works</a>
+            </nav>
+            <a href="http://localhost:8501" target="_blank" class="btn btn-primary nav-cta">Launch App</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero glass-panel fade-in">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="pulse-dot"></span>
+                    Now powered by Llama 3.1 & Gemini
+                </div>
+                <h1 class="hero-title">Your Personal <span class="gradient-text">AI Healthcare Assistant</span></h1>
+                <p class="hero-description">
+                    A secure, local, and incredibly smart RAG-powered medical assistant. Upload your health reports, blood tests, and lab results securely, and get instant, context-aware answers.
+                </p>
+                <div class="hero-actions">
+                    <a href="http://localhost:8501" target="_blank" class="btn btn-primary btn-large">
+                        Get Started <i class="ph-bold ph-arrow-right"></i>
+                    </a>
+                    <a href="#features" class="btn btn-secondary btn-large">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="mockup-container float-animation">
+                    <img src="assets/mockup.png" alt="MediBot App Dashboard Interface" class="app-mockup">
+                    <div class="glass-card stat-card float-delayed">
+                        <i class="ph-fill ph-check-circle" style="color: var(--success-color);"></i>
+                        <div class="stat-info">
+                            <h4>RAG Ready</h4>
+                            <p>Powered by Pinecone</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <h2 class="section-title text-center fade-in-up">Intelligent, Secure, and Built for You</h2>
+            <div class="features-grid">
+                <div class="feature-card glass-panel fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="feature-icon icon-blue">
+                        <i class="ph-duotone ph-file-pdf"></i>
+                    </div>
+                    <h3>Smart PDF Ingestion</h3>
+                    <p>Dynamically upload and vectorize your medical reports, clinic summaries, and lab results in seconds.</p>
+                </div>
+                
+                <div class="feature-card glass-panel fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="feature-icon icon-purple">
+                        <i class="ph-duotone ph-brain"></i>
+                    </div>
+                    <h3>Context-Aware RAG</h3>
+                    <p>Leveraging Google Gemini embeddings and Pinecone vector database for highly accurate Retrieval-Augmented Generation.</p>
+                </div>
+
+                <div class="feature-card glass-panel fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="feature-icon icon-green">
+                        <i class="ph-duotone ph-shield-check"></i>
+                    </div>
+                    <h3>Local & Secure</h3>
+                    <p>Powered by Llama 3.1 running securely on your local device via Ollama. No data leaves your machine unless you want it to.</p>
+                </div>
+
+                <div class="feature-card glass-panel fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="feature-icon icon-pink">
+                        <i class="ph-duotone ph-download-simple"></i>
+                    </div>
+                    <h3>Chat History Backup</h3>
+                    <p>Easily download and manage your conversation history as text files for later consultation with a real physician.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="banner glass-panel fade-in-up">
+            <div class="banner-inner">
+                <h2>Ready to explore your health data?</h2>
+                <p>Run MediBot locally using FastAPI and Streamlit.</p>
+                <a href="http://localhost:8501" target="_blank" class="btn btn-primary banner-btn">
+                    Launch Streamlit Interface <i class="ph-bold ph-rocket-launch"></i>
+                </a>
+            </div>
+            <div class="disclaimer">
+                <i class="ph-fill ph-warning-circle"></i>
+                Note: This chatbot is intended for educational and assistant usage. Always consult a certified healthcare professional regarding medical decisions.
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="ph-fill ph-heartbeat"></i>
+                    <span>MediBot</span>
+                </div>
+                <p>Advanced RAG Healthcare Assistant.</p>
+            </div>
+            <div class="footer-links">
+                Built with FastAPI, Streamlit, LangChain & local LLMs.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
